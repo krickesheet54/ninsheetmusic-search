@@ -19,7 +19,7 @@ def scrape():
     if not sheets:
         return
 
-    print(json.dumps(sheets, indent=2).encode("utf-8").decode("unicode_escape"))
+    print(json.dumps(sheets, indent=2))
 
 def scrape_all_series() -> list:
     """
@@ -75,6 +75,8 @@ def scrape_sheet_data(series_name: str, game_title: str, platform: str, sheet) -
     pdf = sheet.select_one(".tableList-buttonCell--sheetPdf").attrs["href"].strip()
     midi = sheet.select_one(".tableList-buttonCell--sheetMid").attrs["href"].strip()
     finale = sheet.select_one(".tableList-buttonCell--sheetMus").attrs["href"].strip()
+
+    arranger = arranger.replace("\n", ",")
 
     pdf = f"{BASE_URL}{pdf}"
     midi = f"{BASE_URL}{midi}"
