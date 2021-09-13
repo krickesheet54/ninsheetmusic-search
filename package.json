@@ -1,11 +1,12 @@
 {
-  "name": "svelte-app",
+  "name": "ninsheetmusic-search",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear"
+    "start": "sirv public --no-clear --gzip",
+    "scrape": "python3 scrape.py > public/sheets.json"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
