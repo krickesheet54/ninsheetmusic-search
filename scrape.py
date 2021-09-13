@@ -19,7 +19,7 @@ def scrape():
     if not sheets:
         return
 
-    print(json.dumps(sheets, indent=2))
+    print(json.dumps(sheets, indent=2).encode("utf-8").decode("unicode_escape"))
 
 def scrape_all_series() -> list:
     """
